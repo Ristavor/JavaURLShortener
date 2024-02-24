@@ -10,7 +10,7 @@ public class Main {
         LinkHandler linkHandler = new LinkHandler(dataHandler);
         HttpServer_my server = new HttpServer_my(linkHandler);
         server.setParameters();
-        server.startServer();
+        server.startServer(1);
     }
 
 

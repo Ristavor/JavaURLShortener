@@ -17,13 +17,15 @@ public class HttpServer_my {
         server = HttpServer.create(new InetSocketAddress(6969), 0);
         linkHandler = linkHandlerInput;
     }
-    public void setParameters() throws Exception {
+    public void setParameters() {
         server.createContext("/", new MyHandler());
         server.setExecutor(null);
     }
 
-    public void startServer() {
-        server.start();
+    public void startServer(Integer parameter) {
+        if (parameter == 0) {
+            server.start();
+        }
     }
     class MyHandler implements HttpHandler{
         @Override
