@@ -1,8 +1,16 @@
 package urlShortener.serviceLayer;
 
+import urlShortener.dataLayer.DataHandler;
+
+import java.util.Map;
+
 public class LinkHandler {
-    public LinkHandler() {}
-    public String testReturn(String message) {
-        return message;
+    private final DataHandler dataHandler;
+    public LinkHandler(DataHandler dataHandlerInput) {
+        dataHandler = dataHandlerInput;
+    }
+    public Map<String, String> testReturn(String message) {
+        dataHandler.addNewLink("youtube.com");
+        return dataHandler.getMap();
     }
 }

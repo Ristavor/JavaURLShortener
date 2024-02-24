@@ -28,7 +28,7 @@ public class HttpServer_my {
     class MyHandler implements HttpHandler{
         @Override
         public void handle(HttpExchange exchange) throws IOException {
-            String str = linkHandler.testReturn("testMessage");
+            String str = linkHandler.testReturn("testMessage").toString();
             byte[] bytes = str.getBytes();
             exchange.sendResponseHeaders(200, bytes.length);
             OutputStream os = exchange.getResponseBody();
