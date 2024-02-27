@@ -1,5 +1,5 @@
 package urlShortener.controllerLayer;
-
+/**
 import com.sun.net.httpserver.HttpExchange;
 import com.sun.net.httpserver.HttpHandler;
 import com.sun.net.httpserver.HttpServer;
@@ -26,7 +26,7 @@ public class HttpServer_my {
         linkHandler = linkHandlerInput;
     }
     public void setParameters() {
-        server.createContext("/", new MyHandler());
+        server.createContext("/post", new MyHandler());
         server.createContext("/echoGet", new EchoGetHandler());
         server.setExecutor(null);
     }
@@ -59,13 +59,14 @@ public class HttpServer_my {
             parseQuery(query, parameters);
 
             // send response
-            StringBuilder response = new StringBuilder();
-            for (String key : parameters.keySet())
-                response.append(key).append(" = ").append(parameters.get(key)).append("\n");
-            he.sendResponseHeaders(200, response.length());
+            // StringBuilder response = new StringBuilder();
+            // for (String key : parameters.keySet())
+            //     response.append(key).append(" = ").append(parameters.get(key)).append("\n");
+            String str = linkHandler.getShortByFull(parameters.get("link").toString());
+            byte[] bytes = str.getBytes();
+            he.sendResponseHeaders(200, bytes.length);
             OutputStream os = he.getResponseBody();
-            os.write(response.toString().getBytes());
-
+            os.write(bytes);
             os.close();
         }
 
@@ -110,3 +111,4 @@ public class HttpServer_my {
 
 
 }
+*/

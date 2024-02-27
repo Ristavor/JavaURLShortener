@@ -13,4 +13,8 @@ public class LinkHandler {
         dataHandler.addNewLink("youtube.com");
         return dataHandler.getMap();
     }
+
+    public String getShortByFull(String shortLink) {
+        return dataHandler.getFullByShort(shortLink);
+    }
 }

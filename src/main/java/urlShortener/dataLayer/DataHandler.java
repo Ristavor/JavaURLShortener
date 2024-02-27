@@ -16,6 +16,10 @@ public class DataHandler {
         i++;
     }
 
+    public String getFullByShort(String shortLink) {
+        return linkMapping.get(shortLink);
+    }
+
     public Map<String, String> getMap() {
         return linkMapping;
     }
